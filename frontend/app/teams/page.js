@@ -1,12 +1,12 @@
 'use client';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react'; // Добавили Suspense
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '../context/AuthContext';
 import styles from './page.module.css';
-import {API_URL} from "../libs/api";
+import { API_URL } from "../libs/api";
 
-export default function TeamsPage() {
+function TeamsPageContent() {
     const { token, user } = useAuth();
     const router = useRouter();
     const [teams, setTeams] = useState([]);
@@ -118,5 +118,13 @@ export default function TeamsPage() {
                 </div>
             )}
         </div>
+    );
+}
+
+export default function TeamsPage() {
+    return (
+        <Suspense fallback={<div style={{ textAlign: 'center', padding: "4rem", color: "#fff" }}>Загрузка списка команд...</div>}>
+            <TeamsPageContent />
+        </Suspense>
     );
 }
