@@ -1,0 +1,177 @@
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+.mainTitle {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.postsGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.card {
+    background-color: #0b0e14;
+    border: 1px solid #1e293b;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.imageContainer {
+    width: 100%;
+    max-height: 400px;
+    overflow: hidden;
+}
+
+.postImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.cardBody {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.postMetaTop {
+    font-size: 0.75rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.postTitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.postContent {
+    font-size: 0.85rem;
+    color: #64748b;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+}
+
+.cardFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 1rem;
+    border-top: 1px solid #1e293b;
+}
+
+.likeBtn {
+    background-color: #0f172a;
+    border: 1px solid #1e293b;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+}
+
+.likeBtn:hover {
+    background-color: #1e293b;
+    color: #ffffff;
+    border-color: #475569;
+}
+
+.likeBtn.liked {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-color: #ef4444;
+    color: #ef4444;
+}
+
+.heartIcon {
+    font-size: 1rem;
+    line-height: 1;
+}
+
+.likeCount {
+    font-family: inherit;
+}
+
+.authorInfo {
+    font-size: 0.8rem;
+    color: #64748b;
+}
+
+.authorInfo span {
+    color: #94a3b8;
+    font-weight: 500;
+}
+.searchBoxWrapper {
+    position: relative;
+    max-width: 450px;
+    margin: 0 auto 35px auto;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.pageSearchInput {
+    width: 100%;
+    padding: 12px 45px 12px 18px;
+    background: #1e293b;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    color: #fff;
+    font-size: 0.95rem;
+    transition: all 0.25s ease;
+}
+
+.pageSearchInput:focus {
+    outline: none;
+    border-color: #f97316; /* Оранжевый акцент */
+    box-shadow: 0 0 12px rgba(249, 115, 22, 0.25);
+    background: #131c2e;
+}
+
+.pageSearchInput::placeholder {
+    color: #64748b;
+}
+
+.clearSearchBtn {
+    position: absolute;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: #64748b;
+    font-size: 1.4rem;
+    cursor: pointer;
+    line-height: 1;
+    padding: 0;
+}
+
+.clearSearchBtn:hover {
+    color: #ef4444;
+}
+
+.emptyGridMessage {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 1.1rem;
+    padding: 50px 0;
+    width: 100%;
+}

@@ -1,0 +1,254 @@
+.container {
+    display: flex;
+    gap: 2.5rem;
+    max-width: 950px;
+    margin: 3rem auto;
+    background-color: #0b0e14;
+    border: 1px solid #1e293b;
+    border-radius: 12px;
+    padding: 2.5rem;
+}
+
+.sidebar {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-right: 1px solid #1e293b;
+    padding-right: 2.5rem;
+    max-width: 250px;
+}
+
+.avatarWrapper {
+    position: relative;
+    margin-bottom: 1.5rem;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.avatar {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #1e293b;
+    box-shadow: 0 0 15px rgba(255, 85, 0, 0.2);
+    background-color: #1e293b;
+}
+
+.uploadBtn {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(5, 7, 10, 0.9);
+    border: 1px solid #334155;
+    color: #ffffff;
+    font-size: 0.65rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 800;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.uploadBtn:hover {
+    background: #1e293b;
+    color: #05070a;
+    box-shadow: 0 0 10px #1e293b;
+}
+
+.username {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 1rem 0 0.5rem 0;
+    text-align: center;
+}
+
+.emailBadge {
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.mainInfo {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+}
+
+.sectionHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-bottom: 0.75rem;
+}
+
+.sectionHeader h3 {
+    font-size: 1.1rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+    margin: 0;
+}
+
+.editBtn, .saveBtn {
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.editBtn {
+    background-color: #1e293b;
+    color: #cbd5e1;
+}
+
+.editBtn:hover {
+    background-color: #334155;
+    color: #fff;
+}
+
+.saveBtn {
+    background-color: #334155;
+    color: #ffffff;
+}
+
+.fieldGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.fieldGroup label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #64748b;
+    letter-spacing: 0.05em;
+}
+
+.bioText {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    background: #05070a;
+    padding: 1rem;
+    border-radius: 6px;
+    border: 1px solid rgba(30, 41, 59, 0.5);
+    margin: 0;
+}
+
+.textarea, .input {
+    background-color: #05070a;
+    border: 1px solid #1e293b;
+    border-radius: 6px;
+    color: #fff;
+    padding: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+.textarea:focus, .input:focus {
+    outline: none;
+    border-color: #334155;
+}
+
+.gamesList {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.gameTag {
+    background-color: rgba(0, 240, 255, 0.05);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    color: #cbd5e1;
+    padding: 0.35rem 0.7rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.gameTag button {
+    background: none;
+    border: none;
+    color: #1e293b;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    padding: 0;
+}
+
+.teamsList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.teamBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background-color: #05070a;
+    border: 1px solid #1e293b;
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.teamDot {
+    width: 8px;
+    height: 8px;
+    background-color: #b55fe6;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #b55fe6;
+}
+
+.noData {
+    color: #64748b;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: 0;
+}
+
+.loading {
+    text-align: center;
+    padding: 5rem;
+    color: #64748b;
+}
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        padding: 1.5rem;
+    }
+    .sidebar {
+        max-width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #1e293b;
+        padding-right: 0;
+        padding-bottom: 1.5rem;
+    }
+}

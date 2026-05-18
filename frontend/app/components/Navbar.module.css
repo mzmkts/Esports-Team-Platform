@@ -1,0 +1,196 @@
+.nav {
+    background-color: rgba(11, 17, 32, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-color);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 1rem 1.5rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logoGroup {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+}
+
+.logoText {
+    font-size: 1.5rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--color-orange);
+    letter-spacing: -0.05em;
+}
+
+.logoWhite {
+    color: #ffffff;
+}
+
+.menu {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.navLink {
+    position: relative;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    padding: 0.5rem 0;
+    color: var(--text-muted);
+    transition: color 0.2s;
+}
+
+.navLink:hover {
+    color: #ffffff;
+}
+
+.activeOrange { color: var(--color-orange) !important; }
+.activeCyan { color: var(--color-cyan) !important; }
+
+.authBlock {
+    display: flex;
+    align-items: center;
+}
+
+.profileBadge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: rgba(5, 7, 15, 0.5);
+    border: 1px solid var(--border-color);
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color 0.2s;
+}
+
+.profileBadge:hover {
+    border-color: var(--color-orange);
+}
+
+.avatarMini {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid var(--color-orange);
+}
+
+.usernameText {
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.registerBtn {
+    background-color: var(--color-orange);
+    color: var(--bg-main);
+    font-weight: 800;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    padding: 0.6rem 1.2rem;
+    border-radius: 4px;
+    text-decoration: none;
+    box-shadow: var(--shadow-orange);
+    transition: transform 0.1s;
+}
+
+.registerBtn:active {
+    transform: scale(0.96);
+}
+
+@media (max-width: 768px) {
+    .menu {
+        gap: 1rem;
+    }
+    .usernameText {
+        display: none;
+    }
+}
+.activePurple { color: var(--cyber-purple) !important; }
+
+.userControls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.guestLinks {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+}
+
+.loginLink {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+}
+
+.loginLink:hover {
+    color: #fff;
+}
+
+.logoutBtn {
+    background: none;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: #ef4444;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logoutBtn:hover {
+    background-color: #ef4444;
+    color: #fff;
+}
+.userMenu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.avatarLink {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navAvatar {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--cyber-orange, #ff5500);
+    object-fit: cover;
+    background-color: #05070a;
+}
+
+.username {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+.activeGreen {
+    color: #22c55e !important;
+}
