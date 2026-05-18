@@ -1,11 +1,11 @@
 'use client';
-import {useState, useEffect} from 'react';
-import {useSearchParams, useRouter} from 'next/navigation';
+import { useState, useEffect, Suspense } from 'react'; // Добавили Suspense
+import { useSearchParams, useRouter } from 'next/navigation';
 import Link from 'next/link';
 import styles from './users.module.css';
-import {API_URL} from "../libs/api";
+import { API_URL } from "../libs/api";
 
-export default function UsersPage() {
+function UsersPageContent() {
     const [users, setUsers] = useState([]);
     const [loading, setLoading] = useState(true);
 
@@ -105,5 +105,13 @@ export default function UsersPage() {
                 </div>
             )}
         </div>
+    );
+}
+
+export default function UsersPage() {
+    return (
+        <Suspense fallback={<div style={{ textAlign: "center", padding: "4rem", color: "#fff" }}>Загрузка списка игроков...</div>}>
+            <UsersPageContent />
+        </Suspense>
     );
 }
