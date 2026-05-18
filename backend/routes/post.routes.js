@@ -1,13 +1,29 @@
 const express = require("express");
 const router = express.Router();
-
-const postController = require("../controllers/post.controller");
 const protect = require("../middleware/auth.middleware");
+const multer = require("multer");
 
-router.post("/", protect, postController.createPost);
-router.get("/", postController.getPosts);
-router.get("/:id", postController.getPostById);
-router.put("/:id/like", protect, postController.likePost);
-router.delete("/:id", protect, postController.deletePost);
+const upload = multer({ storage: multer.memoryStorage() });
+
+const {
+    createPost,
+    getPosts,
+    getPostById,
+    updatePost,
+    likePost,
+    deletePost,
+    uploadPostImage,
+    getLikedPosts
+} = require("../controllers/post.controller");
+
+router.post("/upload-image", protect, upload.single("image"), uploadPostImage);
+router.post("/", protect, createPost);
+router.get("/", getPosts);
+router.get("/liked", protect, getLikedPosts); // <-- ПОДНЯЛИ НАВЕРХ, ТЕПЕРЬ ОН РАБОТАЕТ!
+
+router.put("/:id", protect, updatePost);
+router.get("/:id", getPostById);
+router.put("/:id/like", protect, likePost);
+router.delete("/:id", protect, deletePost);
 
 module.exports = router;

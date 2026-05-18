@@ -8,8 +8,6 @@ const teamSchema = new mongoose.Schema(
             unique: true,
         },
 
-        logo: String,
-
         description: String,
 
         game: String,
