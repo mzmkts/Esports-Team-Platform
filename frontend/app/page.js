@@ -1,13 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react"; // Добавили Suspense сюда
 import { useSearchParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { API_URL } from "./libs/api";
 import { useAuth } from "./context/AuthContext";
 import styles from "./page.module.css";
 
-export default function PostsPage() {
+function PostsPageContent() {
     const { user } = useAuth();
     const [posts, setPosts] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -78,7 +78,6 @@ export default function PostsPage() {
         <div className={styles.container}>
             <h1 className={styles.mainTitle}>Главные Киберспортивные События</h1>
 
-            {/* Строка поиска */}
             <div className={styles.searchBoxWrapper}>
                 <input
                     type="text"
@@ -139,5 +138,13 @@ export default function PostsPage() {
                 </div>
             )}
         </div>
+    );
+}
+
+export default function PostsPage() {
+    return (
+        <Suspense fallback={<div style={{ textAlign: "center", padding: "4rem", color: "#fff" }}>Инициализация платформы...</div>}>
+            <PostsPageContent />
+        </Suspense>
     );
 }
