@@ -10,6 +10,7 @@ router.get("/:id", teamController.getTeamById);
 router.post("/:id/join", protect, teamController.joinTeam);
 router.post("/:id/leave", protect, teamController.leaveTeam);
 router.delete("/:id", protect, teamController.deleteTeam);
+router.put("/:id", protect, teamController.updateTeam);
 
 
 module.exports = router;

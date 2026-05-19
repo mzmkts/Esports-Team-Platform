@@ -73,5 +73,27 @@ const deleteTeam = async (req, res) => {
 
     res.json({ message: "Team deleted" });
 };
+const updateTeam = async (req, res) => {
+    try {
+        const team = await Team.findById(req.params.id);
 
-module.exports = {createTeam, getTeams, getTeamById, joinTeam, leaveTeam, deleteTeam}
+        if (!team) {
+            return res.status(404).json({ message: "Team not found" });
+        }
+
+        if (team.owner.toString() !== req.user._id.toString()) {
+            return res.status(403).json({ message: "Not authorized to update this team" });
+        }
+
+        team.name = req.body.name || team.name;
+        team.description = req.body.description || team.description;
+        team.game = req.body.game || team.game;
+        team.logo = req.body.logo || team.logo;
+
+        await team.save();
+        res.json({ message: "Team updated successfully", team });
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error: error.message });
+    }
+};
+module.exports = {createTeam, getTeams, getTeamById, joinTeam, leaveTeam, deleteTeam, updateTeam}
