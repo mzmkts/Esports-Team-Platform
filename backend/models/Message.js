@@ -19,19 +19,18 @@ const messageSchema = new mongoose.Schema(
             required: true,
         },
 
-        attachments: [
-            {
-                url: String,
-                type: String,
-            },
-        ],
-
         readBy: [
             {
                 type: mongoose.Schema.Types.ObjectId,
                 ref: "User",
             },
         ],
+
+        messageType: {
+            type: String,
+            enum: ["text", "system"],
+            default: "text",
+        },
     },
     { timestamps: true }
 );

@@ -1,4 +1,5 @@
 const Team = require("../models/Team");
+const Message = require("../models/Message");
 
 const createTeam = async (req, res) => {
     const team = await Team.create({
@@ -30,24 +31,36 @@ const getTeamById = async (req, res) => {
 };
 
 const joinTeam = async (req, res) => {
-    const team = await Team.findById(req.params.id);
+    try {
+        const team = await Team.findById(req.params.id);
 
-    if (!team) {
-        return res.status(404).json({ message: "Team not found" });
+        if (!team) {
+            return res.status(404).json({ message: "Team not found" });
+        }
+
+        if (team.members.includes(req.user._id)) {
+            return res.status(400).json({ message: "Already in team" });
+        }
+
+        if (team.members.length >= team.maxMembers) {
+            return res.status(400).json({ message: "Team is full" });
+        }
+
+        team.members.push(req.user._id);
+        await team.save();
+
+        await Message.create({
+            sender: req.user._id,
+            team: team._id,
+            content: `${req.user.username} вступил в команду`,
+            messageType: "system"
+        });
+
+        res.json({ message: "Вступил в команду", team });
+
+    } catch (error) {
+        res.status(500).json({ message: "Server error", error: error.message });
     }
-
-    if (team.members.includes(req.user._id)) {
-        return res.status(400).json({ message: "Already in team" });
-    }
-
-    if (team.members.length >= team.maxMembers) {
-        return res.status(400).json({ message: "Team is full" });
-    }
-
-    team.members.push(req.user._id);
-    await team.save();
-
-    res.json({ message: "Joined team", team });
 };
 
 const leaveTeam = async (req, res) => {

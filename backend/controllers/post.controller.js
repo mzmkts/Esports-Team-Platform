@@ -10,7 +10,6 @@ const createPost = async (req, res) => {
             image: req.body.image,
             tags: req.body.tags,
             author: req.user._id,
-            team: req.body.team || null,
         });
         res.status(201).json(post);
     } catch (err) {
@@ -75,7 +74,7 @@ const likePost = async (req, res) => {
             return res.status(404).json({ message: "Пост не найден" });
         }
 
-        const userId = req.user._id; // ID текущего юзера из твоего middleware protect
+        const userId = req.user._id;
         const userIndex = post.likes.indexOf(userId);
 
         if (userIndex === -1) {
@@ -87,8 +86,8 @@ const likePost = async (req, res) => {
         await post.save();
 
         const updatedPost = await Post.findById(post._id)
-            .populate("author", "username") // Добавь те поля автора, которые используешь (например: username avatar)
-            .populate("team"); // Если нужно для других компонентов
+            .populate("author", "username")
+            .populate("team");
 
         return res.status(200).json(updatedPost);
     } catch (err) {
@@ -158,10 +157,9 @@ const uploadPostImage = async (req, res) => {
 
 const getLikedPosts = async (req, res) => {
     try {
-        // Ищем посты, где в массиве likes содержится ID авторизованного юзера (req.user._id)
         const likedPosts = await Post.find({ likes: req.user._id })
-            .populate("author", "username") // Обязательно делаем populate автора, чтобы он не пропадал
-            .sort({ createdAt: -1 }); // Свежие лайки будут сверху
+            .populate("author", "username")
+            .sort({ createdAt: -1 });
 
         return res.status(200).json(likedPosts);
     } catch (err) {
