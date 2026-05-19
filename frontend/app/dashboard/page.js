@@ -253,7 +253,6 @@ export default function DashboardPage() {
                                             <div className={styles.infoColumn}>
                                                 <div className={styles.titleRow}>
                                                     <span className={styles.postName}>{post.title}</span>
-                                                    <span className={styles.tagBadge}>{post.tags?.[0] || 'CS2'}</span>
                                                 </div>
                                                 <span className={styles.authorName}>by {post.author?.username || user?.username}</span>
                                             </div>
